@@ -1,0 +1,22 @@
+{
+	"prettier.printWidth": 140,
+	"prettier.useTabs": true,
+	"prettier.singleQuote": true,
+	"prettier.htmlWhitespaceSensitivity": "ignore",
+	"editor.tabSize": 2,
+	"editor.hover.delay": 1000,
+	"editor.quickSuggestionsDelay": 1,
+	"liveSassCompile.settings.formats": [
+		{
+			"format": "expanded",
+			"extensionName": ".css",
+			"savePath": "~/"
+		}
+	],
+	"[php]": {
+		"editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
+	},
+	"[sass]": {
+		"editor.defaultFormatter": "sasa.vscode-sass-format"
+	}
+}

@@ -1,0 +1,65 @@
+@charset "utf-8";
+@use 'sass:math';
+
+/*------------------------------------------------
+mixins
+------------------------------------------------*/
+@mixin fz($font-size) {
+	font-size: math.div($font-size, 10) * 1rem;
+}
+
+/*------------------------------------------------
+font
+------------------------------------------------*/
+// メインのフォント
+@mixin font-family {
+	font-family: 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', '游ゴシック', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+}
+
+// テキストスタイルのmixin
+@mixin txt-basic {
+	@include fz(14);
+	font-weight: 400;
+	line-height: 1.9;
+	@include media_narrow {
+		@include fz(13);
+	}
+}
+
+@mixin txt-basic--bold {
+	@include txt-basic;
+	font-weight: 600;
+}
+
+/*---------------------------------------------
+color
+---------------------------------------------*/
+$c-white: #ffffff;
+$c-black: #000000;
+
+/*---------------------------------------------
+ease
+---------------------------------------------*/
+$e-out: cubic-bezier(0.7, 0, 0.1, 1);
+$e-inOut: cubic-bezier(0.9, 0, 0.1, 1);
+
+/*------------------------------------------------
+media
+------------------------------------------------*/
+@mixin media_narrow {
+	@media screen and (max-width: 767px) {
+		@content;
+	}
+}
+
+@mixin media_wide {
+	@media screen and (min-width: 768px) {
+		@content;
+	}
+}
+
+@mixin media_hover {
+	@media (hover: hover) {
+		@content;
+	}
+}
