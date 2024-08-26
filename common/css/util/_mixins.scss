@@ -8,6 +8,20 @@ mixins
 	font-size: math.div($font-size, 10) * 1rem;
 }
 
+@mixin delay($length, $delay: 0.05, $offset: 0, $nth: 'child') {
+	@for $i from 1 through $length {
+		@if $nth == 'child' {
+			&:nth-child(#{$i}) {
+				transition-delay: #{$delay * ($i - 1) + $offset}s;
+			}
+		} @else if $nth == 'type' {
+			&:nth-of-type(#{$i}) {
+				transition-delay: #{$delay * ($i - 1) + $offset}s;
+			}
+		}
+	}
+}
+
 /*------------------------------------------------
 font
 ------------------------------------------------*/
@@ -41,6 +55,9 @@ $c-black: #000000;
 ease
 ---------------------------------------------*/
 $e-out: cubic-bezier(0.7, 0, 0.1, 1);
+$e-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+$e-out-circ: cubic-bezier(0, 0.07, 0.02, 0.83);
+$e-out-bounce: cubic-bezier(0.45, 1.31, 0.33, 1.15);
 $e-inOut: cubic-bezier(0.9, 0, 0.1, 1);
 
 /*------------------------------------------------
